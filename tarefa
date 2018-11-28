@@ -1,0 +1,50 @@
+#!/usr/bin/env python3
+
+import requests
+import json
+import sys
+
+endereco_servidor = 'http://127.0.0.1:5000/Tarefa/'
+
+def adicionar(lista):
+	r = requests.post(endereco_servidor, data=lista)
+	print(r.json())
+
+def listar():
+	r = request.get(endereco_servidor)
+	print(r.json())
+
+def buscar(id):
+	r = request.get(endereco_servidor+str(id))
+	print(r.json())
+
+def apagar(id):
+	r = request.delete(endereco_servidor+str(id))
+	print(r.json())
+
+def atualizar(id, valor):
+	r = requests.put(endereco_servidor, data={str(id):valor})
+	print(r.json())
+
+if __name__ == '__main__':
+	
+	task = sys.argv[1]
+
+	if task == "adicionar":
+		entrada = len(sys.argv[i])
+		for i in xrange(2,entrada):
+			adicionar(sys.argv[i])
+
+	elif task == "listar":
+		listar()
+
+	elif task == "buscar":
+		buscar(sys.argv[2])
+
+	elif task == "apagar":
+		entrada = len(sys.argv[i])
+		for i in xrange(2,entrada):
+			apagar(sys.argv[i])
+
+	elif task == "atualizar":
+		atualizar(sys.argv[2].argv[3])
