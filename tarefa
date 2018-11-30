@@ -6,34 +6,44 @@ import sys
 
 endereco_servidor = 'http://127.0.0.1:5000/Tarefa/'
 
-def adicionar(lista):
-	r = requests.post(endereco_servidor, data=lista)
-	print(r.json())
+#lista = {1:"A", 2:"B", 3:"C"}
+#first_arg = sys.argv[2]
+#second_arg = sys.argv[3]
+
+def adicionar(word1, word2):
+	#lista = '''value":%s''' % lista
+	#print(lista)
+	#lista = {"a1": "a", "a2": "b"}
+	lista = {"a1": word1 , "a2": word2}
+	r = requests.post(endereco_servidor, json=lista)
+	print(r.text)
 
 def listar():
-	r = request.get(endereco_servidor)
-	print(r.json())
+	r = requests.get(endereco_servidor)
+	print(r.text)
 
 def buscar(id):
 	r = request.get(endereco_servidor+str(id))
-	print(r.json())
+	#print(r.json())
 
 def apagar(id):
 	r = request.delete(endereco_servidor+str(id))
-	print(r.json())
+	#print(r.json())
 
 def atualizar(id, valor):
 	r = requests.put(endereco_servidor, data={str(id):valor})
-	print(r.json())
+	#print(r.json())
 
 if __name__ == '__main__':
 	
 	task = sys.argv[1]
 
 	if task == "adicionar":
-		entrada = len(sys.argv[i])
-		for i in xrange(2,entrada):
-			adicionar(sys.argv[i])
+		#entrada = len(sys.argv)
+		#for i in range(2,entrada):
+		first_arg = sys.argv[2]
+		second_arg = sys.argv[3]
+		adicionar(first_arg, second_arg)
 
 	elif task == "listar":
 		listar()
@@ -43,8 +53,11 @@ if __name__ == '__main__':
 
 	elif task == "apagar":
 		entrada = len(sys.argv[i])
-		for i in xrange(2,entrada):
+		for i in range(2,entrada):
 			apagar(sys.argv[i])
 
 	elif task == "atualizar":
-		atualizar(sys.argv[2].argv[3])
+		print("atualizar")
+		first_arg = sys.argv[2]
+		second_arg = sys.argv[3]
+		atualizar(first_arg)
