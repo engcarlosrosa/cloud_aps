@@ -1,7 +1,6 @@
 from flask import Flask, Response, request, render_template, jsonify
 import requests
 import os.path
-#from aps_1 import *
 
 dicionario_tarefas = {}
 indice = 1
